@@ -44,3 +44,9 @@ Position operator-(const Position& lhs, const Position& rhs)
 {
   return Position(lhs.get_x()-rhs.get_x(), lhs.get_y()-rhs.get_y());
 }
+
+std::ostream& operator<<(std::ostream& out, Position& rhs)
+{
+  rhs.print(out);
+  return out;
+}
