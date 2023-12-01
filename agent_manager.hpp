@@ -9,7 +9,7 @@ class AgentManager{
     
     public:
         AgentManager(){};
-    
+        virtual ~AgentManager(){}
     public:
         virtual bool isEmptyWaypoint() const = 0;
     
