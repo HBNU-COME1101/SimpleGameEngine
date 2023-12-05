@@ -1,48 +1,41 @@
 #pragma once
 
 #include "agent_manager.hpp"
-#include <vector>
-
+/*
+    TODO: add header file
+*/
 class MyAgentManagerSTL: public AgentManager
 {
     private:
-       std::vector<Position> m_vPosition;
-       
+    /*
+        TODO: add attributes
+    */
     private:
         Position do_not_use_it;
     public:
         MyAgentManagerSTL(){}
-    
+
     public:
         virtual bool isEmptyWaypoint() const
         {
-            if(m_vPosition.size() == 0)
-                // return true when list is empty
-                return true;
-            else
-                return false;
+            // return true when list is empty
+            return true;
         }
-    
-        virtual Position& get_top()
+
+        virtual Position& get_front()
         {
-            // return true last element
-            //return do_not_use_it; // must modify it
-            if(!isEmptyWaypoint())
-                return m_vPosition.back();
-            else
-                return do_not_use_it;
+            // return true first element
+            return do_not_use_it; // must modify it
         }
-    
+
         virtual Position get_next_waypoint()
         {
-            // return last element and remove last element
-            Position pos = m_vPosition.back();
-            m_vPosition.pop_back();
-            return pos;
+            // return first element and remove front element
+            return Position(); // must modify it
         }
-    
+
         virtual void insert_waypoint(Position pos)
         {
-            m_vPosition.push_back(pos);
+            // insert position element 
         }
 };
