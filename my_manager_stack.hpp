@@ -4,7 +4,7 @@
 /*
     TODO: add header file
 */
-class MyAgentManagerList: public AgentManager
+class MyAgentManagerStack: public AgentManager
 {
     private:
     /*
@@ -13,7 +13,7 @@ class MyAgentManagerList: public AgentManager
     private:
         Position do_not_use_it;
     public:
-        MyAgentManagerList(){}
+        MyAgentManagerStack(){}
     
     public:
         virtual bool isEmptyWaypoint() const
@@ -22,7 +22,7 @@ class MyAgentManagerList: public AgentManager
             return true;
         }
     
-        virtual Position& get_front()
+        virtual Position& get_top()
         {
             // return true first element
             return do_not_use_it; // must modify it

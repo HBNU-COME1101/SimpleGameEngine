@@ -4,7 +4,7 @@
 #include "agent_wrapper.hpp"
 
 #include "my_manager_stl.hpp"
-#include "my_manager_list.hpp"
+#include "my_manager_stack.hpp"
 
 int main()
 {
@@ -61,7 +61,7 @@ int main()
   {
     AgentW ag(0, 0);
     
-    AgentManager* am = new MyAgentManagerList();
+    AgentManager* am = new MyAgentManagerStack();
     am->insert_waypoint(Position(10, 10));
     am->insert_waypoint(Position(10, 20));
     am->insert_waypoint(Position(20, 20));
@@ -71,7 +71,7 @@ int main()
     Position cur_pos;
     for(i = 0; i < 1000000; i++)
     {
-      cur_pos = am->get_front();
+      cur_pos = am->get_top();
       if(am->isEmptyWaypoint() == false)
       {  
           if(ag.move(cur_pos))
@@ -94,16 +94,17 @@ int main()
     AgentW ag(0, 0);
     
     AgentManager* am = new MyAgentManagerSTL();
-    am->insert_waypoint(Position(10, 10));
-    am->insert_waypoint(Position(10, 20));
-    am->insert_waypoint(Position(20, 20));
+    
     am->insert_waypoint(Position(30, 20));
+    am->insert_waypoint(Position(20, 20));
+    am->insert_waypoint(Position(10, 20));
+    am->insert_waypoint(Position(10, 10));
       
     int i;
     Position cur_pos;
     for(i = 0; i < 1000000; i++)
     {
-      cur_pos = am->get_front();
+      cur_pos = am->get_top();
       if(am->isEmptyWaypoint() == false)
       {  
           if(ag.move(cur_pos))

@@ -13,7 +13,7 @@ class AgentManager{
     public:
         virtual bool isEmptyWaypoint() const = 0;
     
-        virtual Position& get_front() = 0;
+        virtual Position& get_top() = 0;
     
         virtual Position get_next_waypoint() = 0;
     
